@@ -10,3 +10,13 @@ validates :title, presence: :true
 		<%= message %>
 	<% end %>
 <% end %>
+
+validates :title, presence: true
+
+<% if @ooo_imegeas.error.any? %>
+	<%= @post_images.error.count %>
+	<% if @ooo_imegeas.error.full_messages.each do |message %>
+		<%= message %>
+	<% end %>
+
+<% end %>
