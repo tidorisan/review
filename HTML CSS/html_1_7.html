@@ -1,4 +1,4 @@
-<!-- html_1_7.html -->
+html_1_7.html -->
 
 <!-- 領域示すタグ ページの中心的なコンテンツの外枠を示す -->
 <!-- header footer も同様 -->
@@ -38,3 +38,21 @@ line-hight 親要素と同じ高さ入力＝中央にくる
 
 padding：　px(レスポンシブ対応時画面幅により崩れやすい)/%/auto(親要素あり　100%/なし　画面幅　100%)
 
+<!-- 2020/07/07 -->
+<!-- tableタグ -->
+
+<!-- 重要なのは<thead><tbody>を描き忘れない-->
+<table>
+	<caption>table title and/or explanatory text</caption>
+	<thead>
+		<!-- railsで行を繰り返したい時　<tr>の親の<% if @user.id == current_user.id %><% end %>を記入する-->
+		<tr>
+			<th>header</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>data</td>
+		</tr>
+	</tbody>
+</table>
