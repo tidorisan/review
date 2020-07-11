@@ -1,7 +1,7 @@
 # ruby_9.rb
 #メソッド自分で定義
 # def hello
-# 	"hello_111"
+# 	" hello_111"
 	
 # end
 
