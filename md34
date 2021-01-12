@@ -1,0 +1,143 @@
+---
+title: ""
+tags: ""
+---
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>NaganoCake</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+
+    <!-- ヘッダーbyりのじ -->
+
+      <header id="header">
+
+        <!--  navbar-default 大事消せない-->
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <!-- <div class="navbar-header"> -->
+            <div class="nav navber-nav navbar-left">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample1">
+              </button>
+              <!-- ここは右側のlogoの部分　　あとで外枠などを作る-->
+              <!-- リンクもまだ作って無い -->
+              <a class="navbar-brand" href="#">LOGO</a>
+              <!--  -->
+            </div>
+
+            <!-- ここから右寄せの部分 -->
+            <div class="collapse navbar-collapse" id="navbarEexample1">
+              <ul class="nav navbar-nav navbar-right">
+              <!-- 右寄せにする　navbar-right -->
+
+                <!-- ユーザーがログインしている時-->
+                <% if admin_signed_in? %>
+
+                  <li>
+                    <%= link_to "商品一覧" %>
+                  </li>
+
+                  <li>
+                    <%= link_to "会員一覧" %>
+                    <!-- app詳細設計で記載した　admins/membersになっていない -->
+                  </li>
+
+                  <li>
+                    <%= link_to "注文履歴一覧" %>
+                    <!-- app詳細設計で記載した　admins/ordersになっていない -->
+                  </li>
+
+                  <li>
+                    <%= link_to "ジャンル一覧" %>
+                    <!-- app詳細設計で記載した　admins/productsになっていない -->
+                  </li>
+
+                  <li>
+                    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+                  </li>
+
+
+                <% else %>
+                <!-- ユーザがログインしていない時 -->
+                <!-- これはECサイトのログイン前のヘッダーと同じ -->
+                  <% if member_signed_in? %>
+                <!-- members/ユーザーがログインしている時-->
+                    <li>
+                      <p>ようそこ、###さん！</p>
+                      <!-- レイアウト少しおかしいがこれでせ -->
+                    </li>
+
+                    <li>
+                      <%= link_to "マイページ" %>
+                      <!-- app詳細設計で記載した　admins/membersになっていない -->
+                    </li>
+
+                  <li>
+                    <%= link_to "商品一覧" %>
+                  </li>
+
+                  <li>
+                    <%= link_to "カート" %>
+                    <!-- app詳細設計で記載した　admins/ordersになっていない -->
+                  </li>
+
+                  <li>
+                    <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
+                  </li>
+
+                <% else %>
+                <!-- members/ユーザがログインしていない時 -->
+
+                  <li>
+                    <%= link_to "About" %>
+      <!-- ECサイトのaboutページへ　まだ作ってい無い -->
+
+                  </li>
+
+                  <li>
+                    <%= link_to "商品一覧" %>
+                  </li>
+
+                  <li>
+                    <%= link_to "新規登録" %>
+                    <!-- 管理者側新規登録ページへ -->
+                  </li>
+
+                  <li>
+                    <%= link_to "ログイン", new_member_session_path %>
+                  </li>
+
+                <% end %>
+                  <!--  -->
+
+                <% end %>
+                <!-- if文終わり -->
+
+<!-- こっからmembers -->
+
+                <!-- members/if文終わり -->
+              </ul>
+            </div>
+            <!--  -->
+
+          </div>
+        </nav>
+
+      </header><!-- /header -->
+
+    <!-- ヘッダーbyりのじ -->
+
+    <%= yield %>
+
+  </body>
+</html>
