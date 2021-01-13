@@ -1,13 +1,22 @@
 ---
 title: ""
-tags: ""
+tags: "20200716"
 ---
 
-def top
-    @q = Store.ransack(params[:q])
-    @store = Store.includes(:user).where(user: {unsubscribe_status: true})
-    @stores = @store.where(display_status: true).limit(8).order(id: "DESC")
+<td><%= link_to 'Show', book_path(book), class: "show_#{book.id}" %></td>
+        <td><%= link_to 'Edit', edit_book_path, class: "edit_#{book.id}" %></td>
+        <td><%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy_#{book.id}" %></td>
+      </tr>
+      
 
-    # 親モデルでのカラム条件検索
+原因　eoor
 
-  end
+class: "edit\_#{book.id}"
+
+id
+
+ おそらくここではパスの引数を扱うが異なっている
+
+ide
+
+まずこれ自体の意味は何か
